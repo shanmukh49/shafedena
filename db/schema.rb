@@ -146,7 +146,7 @@ ActiveRecord::Schema.define(:version => 20111105052819) do
     t.datetime "updated_at"
   end
 
-  add_index "archived_exam_scores", ["student_id", "exam_id"], :name => "index_archived_exam_scores_on_student_id_and_exam_id", :limit => {"exam_id"=>nil, "student_id"=>nil}
+  add_index "archived_exam_scores", ["student_id", "exam_id"], :name => "index_archived_exam_scores_on_student_id_and_exam_id", :limit => {"student_id"=>nil, "exam_id"=>nil}
 
   create_table "archived_guardians", :force => true do |t|
     t.integer  "ward_id"
@@ -482,7 +482,7 @@ ActiveRecord::Schema.define(:version => 20111105052819) do
     t.datetime "updated_at"
   end
 
-  add_index "exam_scores", ["student_id", "exam_id"], :name => "index_exam_scores_on_student_id_and_exam_id", :limit => {"exam_id"=>nil, "student_id"=>nil}
+  add_index "exam_scores", ["student_id", "exam_id"], :name => "index_exam_scores_on_student_id_and_exam_id", :limit => {"student_id"=>nil, "exam_id"=>nil}
 
   create_table "exams", :force => true do |t|
     t.integer  "exam_group_id"
@@ -596,7 +596,7 @@ ActiveRecord::Schema.define(:version => 20111105052819) do
     t.boolean "is_paid",           :default => false
   end
 
-  add_index "finance_fees", ["fee_collection_id", "student_id"], :name => "index_finance_fees_on_fee_collection_id_and_student_id", :limit => {"fee_collection_id"=>nil, "student_id"=>nil}
+  add_index "finance_fees", ["fee_collection_id", "student_id"], :name => "index_finance_fees_on_fee_collection_id_and_student_id", :limit => {"student_id"=>nil, "fee_collection_id"=>nil}
 
   create_table "finance_transaction_categories", :force => true do |t|
     t.string  "name"
@@ -742,7 +742,7 @@ ActiveRecord::Schema.define(:version => 20111105052819) do
     t.integer "employee_id"
   end
 
-  add_index "period_entries", ["month_date", "batch_id"], :name => "index_period_entries_on_month_date_and_batch_id", :limit => {"month_date"=>nil, "batch_id"=>nil}
+  add_index "period_entries", ["month_date", "batch_id"], :name => "index_period_entries_on_month_date_and_batch_id", :limit => {"batch_id"=>nil, "month_date"=>nil}
 
   create_table "privileges", :force => true do |t|
     t.string   "name"
@@ -848,7 +848,7 @@ ActiveRecord::Schema.define(:version => 20111105052819) do
   end
 
   add_index "students", ["admission_no"], :name => "index_students_on_admission_no", :limit => {"admission_no"=>"10"}
-  add_index "students", ["first_name", "middle_name", "last_name"], :name => "index_students_on_first_name_and_middle_name_and_last_name", :limit => {"last_name"=>"10", "first_name"=>"10", "middle_name"=>"10"}
+  add_index "students", ["first_name", "middle_name", "last_name"], :name => "index_students_on_first_name_and_middle_name_and_last_name", :limit => {"last_name"=>"10", "middle_name"=>"10", "first_name"=>"10"}
 
   create_table "students_subjects", :force => true do |t|
     t.integer "student_id"
@@ -880,7 +880,7 @@ ActiveRecord::Schema.define(:version => 20111105052819) do
     t.integer "employee_id"
   end
 
-  add_index "timetable_entries", ["weekday_id", "batch_id", "class_timing_id"], :name => "by_timetable", :limit => {"class_timing_id"=>nil, "weekday_id"=>nil, "batch_id"=>nil}
+  add_index "timetable_entries", ["weekday_id", "batch_id", "class_timing_id"], :name => "by_timetable", :limit => {"class_timing_id"=>nil, "batch_id"=>nil, "weekday_id"=>nil}
 
   create_table "user_events", :force => true do |t|
     t.integer  "event_id"
